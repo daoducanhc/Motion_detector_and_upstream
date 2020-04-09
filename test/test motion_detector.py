@@ -1,4 +1,4 @@
-from motion_detector import MotionDetector
+from src import MotionDetector
 from imutils.video import VideoStream
 import datetime
 import imutils
@@ -12,7 +12,11 @@ md = MotionDetector(accumWeight=0.2)
 total = 0
 
 while True:
-    frame = vs.read()
+    #! WARNING about vs.read() function
+    #! vs.read() will return fixed memory block
+    #! hard copy returned value before doing anything
+    originalFrame = vs.read()
+    frame = originalFrame.copy()
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     gray = cv2.GaussianBlur(gray, (7, 7), 0)
 
