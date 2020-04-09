@@ -1,7 +1,7 @@
 
-#TODO python web_stream.py --ip 0.0.0.0 --port 8000
+#TODO python web_stream.py --ip 127.0.0.1 --port 8000
 
-from motion_detector import MotionDetector
+from src import MotionDetector
 from imutils.video import VideoStream
 from flask import Response
 from flask import Flask
